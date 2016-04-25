@@ -34,10 +34,30 @@ class Mult: public Base {
 	public:
 	/* Constructors */
 	Mult () {};
-	Mult (Base* new_op1, Base* new_op2) {
+	Mult (Base* new_op1, Base* new_op2) 
+	{
 		op1 = new_op1;
 		op2 = new_op2;
 	};
+	
+	Mult (Base* new_op1, const double x)
+	{
+		op1 = new_op1;
+		op2 = new Op(x);
+	};
+	
+	Mult (const double y, const double x)
+	{
+		op1 = new Op(y);
+		op2 = new Op(x);
+	};
+	
+	Mult (const double y, Base* new_op2)
+	{
+		op1 = new Op(y);
+		op2 = new_op2;
+	};
+	
 	~ Mult () {};
 	virtual double evaluate()
 	{
@@ -47,6 +67,7 @@ class Mult: public Base {
 	Base* op1;
 	Base* op2;
 };
+
 
 class Add: public Base {
 	public:
