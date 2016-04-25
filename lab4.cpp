@@ -1,5 +1,7 @@
 #include <iostream>
 
+using namespace std;
+
 class Base {
 	public:
 		/* Constructors */
@@ -8,11 +10,14 @@ class Base {
 		virtual double evaluate () = 0;
 }
 
-class Op() {
-
+class Op: public Base {
+	public:
+		/* Constructors */
+		Op () {};
+		~ Op () {};
 }
 
-
+class Mult: public Base
 
 int main() {
 
