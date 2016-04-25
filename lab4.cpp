@@ -67,9 +67,10 @@ class Add: public Base {
 
 
 int main() {
-	Op* num = new Op(7);
-	cout << num->getNum() << endl;
-
+	Op* num1 = new Op(7);
+	Op* num2 = new Op(3);
+	Mult* mult = new Mult(num1, num2);
+	cout << mult->evaluate() << endl;
 
 	return 0;
 }
