@@ -34,7 +34,10 @@ class Mult: public Base {
 	public:
 	/* Constructors */
 	Mult () {};
-	Mult (Base* op1, Base* op2) {};
+	Mult (Base* new_op1, Base* new_op2) {
+		op1 = new_op1;
+		op2 = new_op2;
+	};
 	~ Mult () {};
 	virtual double evaluate()
 	{
@@ -48,11 +51,14 @@ class Mult: public Base {
 class Add: public Base {
 	public:
 		/* Constructors */
-		Add (Base* op_1, Base* op_2) {op1=op_1;op2=op_2;};
+		Add (Base* new_op1, Base* new_op2) {
+			op1 = new_op1;
+			op2 = new_op2;
+		};
 		~ Add () {};
 		virtual double evaluate()
 		{
-			return op1->evaluate()*op2->evaluate();
+			return op1->evaluate() + op2->evaluate();
 		};
 	private:
 		Base* op1;
