@@ -174,6 +174,32 @@ class Add: public Base {
 		Base* op2;
 };
 
+class Sqr: public Base {
+	public:
+	/* Constructors */
+	Sqr () {};
+	Sqr (Base* new_op1)
+	{
+		op1 = new_op1;
+	};
+	
+	
+	Sqr (const double y)
+	{
+		op1 = new Op(y);
+	};
+	
+	~ Sqr () {};
+	virtual double evaluate()
+	{
+		double i=op1->evaluate();
+		return i * i;
+	}
+	private:
+	Base* op1;
+
+};
+
 
 int main() {
 	Op* num1 = new Op(7);
