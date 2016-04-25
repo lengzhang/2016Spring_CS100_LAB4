@@ -55,7 +55,6 @@ class Mult: public Base {
 	~ Mult () {};
 	virtual double evaluate()
 	{
-		op1->evaluate() * op2->evaluate();
 		return op1/op2;
 	}
 	private:
