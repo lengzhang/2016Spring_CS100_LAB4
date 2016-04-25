@@ -68,6 +68,81 @@ class Mult: public Base {
 	Base* op2;
 };
 
+class Sub: public Base {
+	public:
+	/* Constructors */
+	Sub () {};
+	Sub (Base* new_op1, Base* new_op2)
+	{
+		op1 = new_op1;
+		op2 = new_op2;
+	};
+	
+	Sub (Base* new_op1, const double x)
+	{
+		op1 = new_op1;
+		op2 = new Op(x);
+	};
+	
+	Sub (const double y, const double x)
+	{
+		op1 = new Op(y);
+		op2 = new Op(x);
+	};
+	
+	Sub (const double y, Base* new_op2)
+	{
+		op1 = new Op(y);
+		op2 = new_op2;
+	};
+	
+	~ Sub () {};
+	virtual double evaluate()
+	{
+		return op1->evaluate() - op2->evaluate();
+	}
+	private:
+	Base* op1;
+	Base* op2;
+};
+
+class Div: public Base {
+	public:
+	/* Constructors */
+	Div () {};
+	Div (Base* new_op1, Base* new_op2)
+	{
+		op1 = new_op1;
+		op2 = new_op2;
+	};
+	
+	Div (Base* new_op1, const double x)
+	{
+		op1 = new_op1;
+		op2 = new Op(x);
+	};
+	
+	Div (const double y, const double x)
+	{
+		op1 = new Op(y);
+		op2 = new Op(x);
+	};
+	
+	Div (const double y, Base* new_op2)
+	{
+		op1 = new Op(y);
+		op2 = new_op2;
+	};
+	
+	~ Div () {};
+	virtual double evaluate()
+	{
+		return op1->evaluate() / op2->evaluate();
+	}
+	private:
+	Base* op1;
+	Base* op2;
+};
 
 class Add: public Base {
 	public:
