@@ -14,26 +14,31 @@ class Op: public Base {
 	public:
 		/* Constructors */
 		Op () {};
-		Op (const int new_num) {
+		Op (const double new_num) {
 			num = new_num;
 		};
 		~ Op () {};
 
-		void setNum(const int new_num) {
+		void setNum(const double new_num) {
 			num = new_num;
 		};
-		int getNum() {
+		double getNum() {
 			return num;
 		};
 	private:
-		int num;
+		double num;
 };
 
 class Mult: public Base {
 	public:
 		/* Constructors */
 		Mult () {};
+		Mult (const Base* op1, const Base* op2) {};
 		~ Mult () {};
+
+	private:
+		Base* op1;
+		Base* op2;
 };
 
 class Add: public Base {
