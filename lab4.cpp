@@ -58,11 +58,7 @@ class Add: public Base {
 		~ Add () {};
 		virtual double evaluate()
 		{
-<<<<<<< HEAD
 			return op1->evaluate() + op2->evaluate();
-=======
-			return op1->evaluate()+op2->evaluate();
->>>>>>> origin/master
 		};
 	private:
 		Base* op1;
