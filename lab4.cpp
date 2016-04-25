@@ -34,134 +34,134 @@ class Op: public Base {
 
 class Mult: public Base {
 	public:
-    /* Constructors */
-	Mult () {};
-	Mult (Base* new_op1, Base* new_op2) 
-	{
-		op1 = new_op1;
-		op2 = new_op2;
-	};
+        /* Constructors */
+        Mult () {};
+        Mult (Base* new_op1, Base* new_op2)
+        {
+            op1 = new_op1;
+            op2 = new_op2;
+        };
 	
-	Mult (Base* new_op1, const double x)
-	{
-		op1 = new_op1;
-		op2 = new Op(x);
-	};
+        Mult (Base* new_op1, const double x)
+        {
+            op1 = new_op1;
+            op2 = new Op(x);
+        };
 	
-	Mult (const double y, const double x)
-	{
-		op1 = new Op(y);
-		op2 = new Op(x);
-	};
+        Mult (const double y, const double x)
+        {
+            op1 = new Op(y);
+            op2 = new Op(x);
+        };
 	
-	Mult (const double y, Base* new_op2)
-	{
-		op1 = new Op(y);
-		op2 = new_op2;
-	};
+        Mult (const double y, Base* new_op2)
+        {
+            op1 = new Op(y);
+            op2 = new_op2;
+        };
 	
-	~ Mult () {};
-	virtual double evaluate()
-	{
-		return op1->evaluate() * op2->evaluate();
-	}
-	void print ()
-	{
-		op1->print();
-		cout << " * ";
-		op2->print();
-	};
-	private:
-	Base* op1;
-	Base* op2;
+        ~ Mult () {};
+        virtual double evaluate()
+        {
+            return op1->evaluate() * op2->evaluate();
+        }
+        void print ()
+        {
+            op1->print();
+            cout << " * ";
+            op2->print();
+        };
+    private:
+        Base* op1;
+        Base* op2;
 };
 
 class Sub: public Base {
 	public:
-	/* Constructors */
-	Sub () {};
-	Sub (Base* new_op1, Base* new_op2)
-	{
-		op1 = new_op1;
-		op2 = new_op2;
-	};
+        /* Constructors */
+        Sub () {};
+        Sub (Base* new_op1, Base* new_op2)
+        {
+            op1 = new_op1;
+            op2 = new_op2;
+        };
 	
-	Sub (Base* new_op1, const double x)
-	{
-		op1 = new_op1;
-		op2 = new Op(x);
-	};
+        Sub (Base* new_op1, const double x)
+        {
+            op1 = new_op1;
+            op2 = new Op(x);
+        };
 	
-	Sub (const double y, const double x)
-	{
-		op1 = new Op(y);
-		op2 = new Op(x);
-	};
+        Sub (const double y, const double x)
+        {
+            op1 = new Op(y);
+            op2 = new Op(x);
+        };
 	
-	Sub (const double y, Base* new_op2)
-	{
-		op1 = new Op(y);
-		op2 = new_op2;
-	};
+        Sub (const double y, Base* new_op2)
+        {
+            op1 = new Op(y);
+            op2 = new_op2;
+        };
 	
-	~ Sub () {};
-	virtual double evaluate()
-	{
-		return op1->evaluate() - op2->evaluate();
-	}
-	void print ()
-	{
-		op1->print();
-		cout << " - ";
-		op2->print();
-	};
+        ~ Sub () {};
+        virtual double evaluate()
+        {
+            return op1->evaluate() - op2->evaluate();
+        }
+        void print ()
+        {
+            op1->print();
+            cout << " - ";
+            op2->print();
+        };
 	private:
-	Base* op1;
-	Base* op2;
+        Base* op1;
+        Base* op2;
 };
 
 class Div: public Base {
 	public:
-	/* Constructors */
-	Div () {};
-	Div (Base* new_op1, Base* new_op2)
-	{
-		op1 = new_op1;
-		op2 = new_op2;
-	};
+        /* Constructors */
+        Div () {};
+        Div (Base* new_op1, Base* new_op2)
+        {
+            op1 = new_op1;
+            op2 = new_op2;
+        };
 	
-	Div (Base* new_op1, const double x)
-	{
-		op1 = new_op1;
-		op2 = new Op(x);
-	};
+        Div (Base* new_op1, const double x)
+        {
+            op1 = new_op1;
+            op2 = new Op(x);
+        };
 	
-	Div (const double y, const double x)
-	{
-		op1 = new Op(y);
-		op2 = new Op(x);
-	};
+        Div (const double y, const double x)
+        {
+            op1 = new Op(y);
+            op2 = new Op(x);
+        };
 	
-	Div (const double y, Base* new_op2)
-	{
-		op1 = new Op(y);
-		op2 = new_op2;
-	};
+        Div (const double y, Base* new_op2)
+        {
+            op1 = new Op(y);
+            op2 = new_op2;
+        };
 	
-	~ Div () {};
-	virtual double evaluate()
-	{
-		return op1->evaluate() / op2->evaluate();
-	}
-	void print ()
-	{
-		op1->print();
-		cout << " / ";
-		op2->print();
-	};
+        ~ Div () {};
+        virtual double evaluate()
+        {
+            return op1->evaluate() / op2->evaluate();
+        }
+        void print ()
+        {
+            op1->print();
+            cout << " / ";
+            op2->print();
+        };
 	private:
-	Base* op1;
-	Base* op2;
+        Base* op1;
+        Base* op2;
 };
 
 class Add: public Base {
@@ -203,33 +203,59 @@ class Add: public Base {
 
 class Sqr: public Base {
 	public:
-	/* Constructors */
-	Sqr () {};
-	Sqr (Base* new_op1)
-	{
-		op1 = new_op1;
-	};
+        /* Constructors */
+        Sqr () {};
+        Sqr (Base* new_op1)
+        {
+            op1 = new_op1;
+        };
 	
-	
-	Sqr (const double y)
-	{
-		op1 = new Op(y);
-	};
-	
-	~ Sqr () {};
-	virtual double evaluate()
-	{
-		double i=op1->evaluate();
-		return i * i;
-	}
-    void print ()
-    {
-        op1.print();
-        cout << "^ 2";
-    }
+        Sqr (const double y)
+        {
+            op1 = new Op(y);
+        };
+    
+        ~ Sqr () {};
+        virtual double evaluate()
+        {
+            double i=op1->evaluate();
+            return i * i;
+        }
+        void print ()
+        {
+            op1.print();
+            cout << "^ 2";
+        }
 	private:
-	Base* op1;
+        Base* op1;
+};
 
+class Container {
+    protected:
+        Sort * sort_function;
+    public:
+        /* Constructors */
+        Container () : sort_function ( NULL ){};
+        Container ( Sort * function ) : sort_function ( function ) {};
+    
+        /* Non Virtual Functions */
+        void set_sort_function ( Sort * sort_function ); // set the type of sorting algorithm
+    
+        /* Pure Virtual Functions */
+        // push the top pointer of the tree into container
+        virtual void add_element ( Base * element ) = 0 ;
+        // iterate through trees and output values
+        virtual void print () = 0 ;
+        // calls on the previously set sortingalgorithm. Checks if sort_function is not null, throw exception if otherwise
+        virtual void sort () = 0 ;
+    
+        /* Essentially the only functions needed to sort */
+        //switch tree locations
+        virtual void swap ( int i , int j ) = 0 ;
+        // get top ptr of tree at index i
+        virtual Base * at ( int i ) = 0 ;
+        // return container size
+        virtual int size () = 0 ;
 };
 
 
