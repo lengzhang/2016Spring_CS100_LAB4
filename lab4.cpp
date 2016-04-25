@@ -44,22 +44,33 @@ class Mult: public Base {
 class Add: public Base {
 	public:
 		/* Constructors */
-		Add () {};
+		Add (const Base* op_1, const Base* op_2) {op1=op_1;op2=op_2;};
 		~ Add () {};
+			
+	private:
+		Base* op1;
+		Base* op2;
 };
 
 class Sub: public Base {
 	public:
 		/* Constructors */
-		Sub () {};
+		Sub (const Base* op_1, const Base* op_2) {op1=op_1;op2=op_2;};
 		~ Sub () {};
+			
+	private:
+		Base* op1;
+		Base* op2;	
 };
 
 class Sqr: public Base {
 	public:
 		/* Constructors */
-		Sqr () {};
+		Sqr (const Base* op_1, const Base* op_2) {op1=op_1;op2=op_2;};
 		~ Sqr () {};
+			
+	private:
+		Base* op1;
 };
 
 int main() {
