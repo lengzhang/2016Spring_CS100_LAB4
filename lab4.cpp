@@ -39,7 +39,7 @@ class Mult: public Base {
 	~ Mult () {};
 	virtual double evaluate()
 	{
-		return op1/op2;
+		return op1->evaluate()*op2->evaluate();
 	}
 	private:
 	Base* op1;
@@ -53,7 +53,7 @@ class Add: public Base {
 		~ Add () {};
 		virtual double evaluate()
 		{
-			return op1->evaluate()*op2->evaluate();
+			return op1->evaluate()+op2->evaluate();
 		};
 	private:
 		Base* op1;
