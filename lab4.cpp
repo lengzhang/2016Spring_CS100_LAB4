@@ -174,13 +174,11 @@ class Add: public Base {
 		Base* op2;
 };
 
-
 int main() {
 	Op* num1 = new Op(7);
 	Op* num2 = new Op(3);
-	Mult* mult = new Mult(5, 5);
-	Add* add = new Add(5,mult);
-	cout << add->evaluate() << endl;
+	Sub* test = new Sub(1,2);
+	cout << test->evaluate() << endl;
 
 	return 0;
 }
