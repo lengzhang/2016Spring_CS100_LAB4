@@ -103,8 +103,8 @@ class Add: public Base {
 int main() {
 	Op* num1 = new Op(7);
 	Op* num2 = new Op(3);
-	Mult* mult = new Mult(num1, num2);
-	Add* add = new Add(mult, num2);
+	Mult* mult = new Mult(5, 5);
+	Add* add = new Add(5,mult);
 	cout << add->evaluate() << endl;
 
 	return 0;
