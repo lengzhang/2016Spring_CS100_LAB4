@@ -8,6 +8,7 @@ class Base {
 		Base () { };
 		/* Pure Virtual Functions */
 		virtual double evaluate () = 0;
+		virtual void print () = 0;
 };
 
 class Op: public Base {
@@ -26,13 +27,14 @@ class Op: public Base {
 			return num;
 		};
 		double evaluate () { return num; };
+		void print () { cout << num; };
 	private:
 		double num;
 };
 
 class Mult: public Base {
 	public:
-	/* Constructors */
+    /* Constructors */
 	Mult () {};
 	Mult (Base* new_op1, Base* new_op2) 
 	{
@@ -63,6 +65,12 @@ class Mult: public Base {
 	{
 		return op1->evaluate() * op2->evaluate();
 	}
+	void print ()
+	{
+		op1->print();
+		cout << " * ";
+		op2->print();
+	};
 	private:
 	Base* op1;
 	Base* op2;
@@ -101,6 +109,12 @@ class Sub: public Base {
 	{
 		return op1->evaluate() - op2->evaluate();
 	}
+	void print ()
+	{
+		op1->print();
+		cout << " - ";
+		op2->print();
+	};
 	private:
 	Base* op1;
 	Base* op2;
@@ -139,6 +153,12 @@ class Div: public Base {
 	{
 		return op1->evaluate() / op2->evaluate();
 	}
+	void print ()
+	{
+		op1->print();
+		cout << " / ";
+		op2->print();
+	};
 	private:
 	Base* op1;
 	Base* op2;
@@ -169,6 +189,13 @@ class Add: public Base {
 		{
 			return op1->evaluate() + op2->evaluate();
 		};
+		void print ()
+		{
+			op1->print();
+			cout << " + ";
+			op2->print();
+		};
+
 	private:
 		Base* op1;
 		Base* op2;
@@ -195,6 +222,11 @@ class Sqr: public Base {
 		double i=op1->evaluate();
 		return i * i;
 	}
+    void print ()
+    {
+        op1.print();
+        cout << "^ 2";
+    }
 	private:
 	Base* op1;
 
