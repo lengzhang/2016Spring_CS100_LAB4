@@ -30,7 +30,6 @@ class Op: public Base {
 		double num;
 };
 
-
 class Mult: public Base {
 	public:
 	/* Constructors */
@@ -39,7 +38,7 @@ class Mult: public Base {
 	~ Mult () {};
 	virtual double evaluate()
 	{
-		return op1/op2;
+		return op1->evaluate() * op2->evaluate();
 	}
 	private:
 	Base* op1;
@@ -62,8 +61,8 @@ class Add: public Base {
 
 
 int main() {
-//	Op* num = new Op(7);
-//	cout << num->getNum() << endl;
+	Op* num = new Op(7);
+	cout << num->getNum() << endl;
 
 
 	return 0;
