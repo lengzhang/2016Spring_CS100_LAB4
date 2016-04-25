@@ -25,6 +25,7 @@ class Op: public Base {
 		double getNum() {
 			return num;
 		};
+		double evaluate () { return num; };
 	private:
 		double num;
 };
@@ -33,12 +34,14 @@ class Mult: public Base {
 	public:
 		/* Constructors */
 		Mult () {};
-		Mult (Base* op1, Base* op2) {};
+		Mult (Base* new_op1, Base* new_op2) {
+			op1 = new_op1;
+			op2 = new_op2;
+		};
 		~ Mult () {};
-		virtual double evaluate()
-		{
-			return op1*op2;
-		}
+		double evaluate () {
+			
+		};
 	private:
 		Base* op1;
 		Base* op2;
@@ -76,10 +79,13 @@ class Add: public Base {
 class Sub: public Base {
 	public:
 		/* Constructors */
+<<<<<<< Updated upstream
 		virtual double evaluate()
 		{
 			return op1-op2;
 		}
+=======
+>>>>>>> Stashed changes
 		Sub (Base* op_1, Base* op_2) {op1=op_1;op2=op_2;};
 		~ Sub () {};
 			
@@ -103,6 +109,9 @@ class Sqr: public Base {
 };
 
 int main() {
+//	Op* num = new Op(7);
+//	cout << num->getNum() << endl;
+
 
 	return 0;
 }
