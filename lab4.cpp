@@ -70,7 +70,8 @@ int main() {
 	Op* num1 = new Op(7);
 	Op* num2 = new Op(3);
 	Mult* mult = new Mult(num1, num2);
-	cout << mult->evaluate() << endl;
+	Add* add = new Add(mult, num2);
+	cout << add->evaluate() << endl;
 
 	return 0;
 }
