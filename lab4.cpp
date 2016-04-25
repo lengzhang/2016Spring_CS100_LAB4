@@ -33,7 +33,7 @@ class Mult: public Base {
 	public:
 		/* Constructors */
 		Mult () {};
-		Mult (const Base* op1, const Base* op2) {};
+		Mult (Base* op1, Base* op2) {};
 		~ Mult () {};
 		virtual double evaluate()
 		{
@@ -48,7 +48,7 @@ class Mult: public Base {
 	public:
 	/* Constructors */
 	Mult () {};
-	Mult (const Base* op1, const Base* op2) {};
+	Mult (Base* op1, Base* op2) {};
 	~ Mult () {};
 	virtual double evaluate()
 	{
@@ -62,7 +62,7 @@ class Mult: public Base {
 class Add: public Base {
 	public:
 		/* Constructors */
-		Add (const Base* op_1, const Base* op_2) {op1=op_1;op2=op_2;};
+		Add (Base* op_1, Base* op_2) {op1=op_1;op2=op_2;};
 		~ Add () {};
 		virtual double evaluate()
 		{
@@ -80,7 +80,7 @@ class Sub: public Base {
 		{
 			return op1-op2;
 		}
-		Sub (const Base* op_1, const Base* op_2) {op1=op_1;op2=op_2;};
+		Sub (Base* op_1, Base* op_2) {op1=op_1;op2=op_2;};
 		~ Sub () {};
 			
 	private:
@@ -91,7 +91,7 @@ class Sub: public Base {
 class Sqr: public Base {
 	public:
 		/* Constructors */
-		Sqr (const Base* op_1) {op1=op_1;};
+		Sqr (Base* op_1) {op1=op_1;};
 		~ Sqr () {};
 		virtual double evaluate()
 		{
