@@ -76,6 +76,19 @@ class Add: public Base {
 			op1 = new_op1;
 			op2 = new_op2;
 		};
+		Add (const double new_op1, const double new_op2) {
+			op1 = new Op(new_op1);
+			op2 = new Op(new_op2);
+		};
+		Add (Base* new_op1, const double new_op2) {
+			op1 = new_op1;
+			op2 = new Op(new_op2);
+		};
+		Add (const double new_op1, Base* new_op2) {
+			op1 = new Op(new_op1);
+			op2 = new_op2;
+		};
+		
 		~ Add () {};
 		virtual double evaluate()
 		{
