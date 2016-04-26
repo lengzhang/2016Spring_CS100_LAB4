@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 
 using namespace std;
 
@@ -257,6 +258,12 @@ class Container {
         	// return container size
         	virtual int size () = 0 ;
 };
+
+class VectorContainer: public Container {
+	public:
+
+	private:
+}
 
 class Sort {
 	public:
