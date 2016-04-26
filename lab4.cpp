@@ -266,6 +266,27 @@ class Sort {
 		virtual void sort ( Container * container ) = 0;
 };
 
+class Bubble_Sort:public Sort{
+	public:
+	
+		
+		void sort(Container* container)
+		{
+			for(int i=0; i< (container->size() - 1); ++i)
+			{
+				for(int j = i + 1; j > 0; --j)
+				{
+					if(container->at(j)->evaluate() < container->at(j-1)->evaluate)
+					{
+						//Swaps the values	
+						container->swap(j, j - 1);
+					}
+				}
+			}
+		}
+	
+};
+
 int main() {
 	Op* num1 = new Op(7);
 	Op* num2 = new Op(3);
