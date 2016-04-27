@@ -224,7 +224,7 @@ class Sqr: public Base {
         	}
         	void print ()
         	{
-            		op1.print();
+            		op1->print();
             		cout << "^ 2";
         	}
 	private:
@@ -261,9 +261,35 @@ class Container {
 
 class VectorContainer: public Container {
 	public:
+		VectorContainer() : sort_function ( NULL ) {};
+		VectorContainer( Sort * function ) : sort_function ( function ) {};
+		~ VectorContainer();
+
+		void set_sort_function ( Sort * sort_function ) {
+			this->sort_function = sort_function;
+		}
+		void add_element ( Base * element ) {
+			vectorContainer.push_back ( element );
+		}
+        	//void print ()
+        	void sort () {
+			sort_function -> sort ( this );
+		}
+    
+        	void swap ( int i , int j ) {
+			Base * temp = vectorContainer[i];
+			vectorContainer[i] = vectorContainer[j];
+			vectorContainer[j] = vectorContainer[i];
+		}
+        	Base * at ( int i ) { return vectorContainer[i]; };
+        	int size () { return vectorContainer.size(); }
+
+	protected:
+		Sort * sort_function;
 
 	private:
-}
+		vector < Base * > vectorContainer;
+};
 
 class Sort {
 	public:
