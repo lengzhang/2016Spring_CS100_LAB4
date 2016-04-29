@@ -3,6 +3,8 @@
 
 #include <iostream>
 #include <vector>
+#include <list>
+
 #include "Sort.h"
 
 using namespace std;
@@ -48,9 +50,16 @@ class VectorContainer: public Container {
 			vectorContainer.push_back ( element );
 		}
         	void print () {
-			for ( int i = 0; i < this -> size (); i++ )
+			if ( this -> size () == 0)
 			{
-				cout << this -> at ( i ) -> evaluate () << endl;
+				cout << "Container is empty." << endl;
+			}
+			else
+			{
+				for ( int i = 0; i < this -> size (); i++ )
+				{
+					cout << this -> at ( i ) -> evaluate () << endl;
+				}
 			}
 		}
         	void sort () {
@@ -72,5 +81,49 @@ class VectorContainer: public Container {
 		vector < Base * > vectorContainer;
 };
 
+class ListContainer: public Container {
+	public:
+		ListContainer() : sort_function ( NULL ) {};
+		ListContainer( Sort * function ) : sort_function ( function ) {};
+		~ ListContainer();
+
+		void set_sort_function ( Sort * sort_function ) {
+			this->sort_function = sort_function;
+		}
+
+		void add_element ( Base * element ) {
+			listContainer.push_back ( element );
+		}
+        	void print () {
+			if ( this -> size () == 0)
+			{
+				cout << "Container is empty." << endl;
+			}
+			else
+			{
+				for ( int i = 0; i < this -> size (); i++ )
+				{
+					cout << this -> at ( i ) -> evaluate () << endl;
+				}
+			}
+		}
+        	void sort () {
+			sort_function -> sort ( this );
+		}
+    
+        	void swap ( int i , int j ) {
+			//Base * temp = listContainer[i];
+			//listContainer[i] = listContainer[j];
+			//listContainer[j] = listContainer[i];
+		}
+        	Base * at ( int i ) { return 0; }
+        	int size () { return 0; }
+
+	protected:
+		Sort * sort_function;
+
+	private:
+		list < Base * > listContainer;
+};
 
 #endif /* Container_h */
