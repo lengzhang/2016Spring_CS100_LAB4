@@ -231,8 +231,6 @@ class Sqr: public Base {
         	Base* op1;
 };
 
-class Sort;
-
 class Container {
 	protected:
         	Sort * sort_function;
