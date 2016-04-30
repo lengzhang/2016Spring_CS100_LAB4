@@ -39,10 +39,6 @@ class Container {
 
 class VectorContainer: public Container {
 	public:
-		VectorContainer() : sort_function ( NULL ) {};
-		VectorContainer( Sort * function ) : sort_function ( function ) {};
-		~ VectorContainer();
-
 		void set_sort_function ( Sort * sort_function ) {
 			this->sort_function = sort_function;
 		}
@@ -51,16 +47,10 @@ class VectorContainer: public Container {
 		}
         	void print () {
 			if ( this -> size () == 0)
-			{
 				cout << "Container is empty." << endl;
-			}
 			else
-			{
 				for ( int i = 0; i < this -> size (); i++ )
-				{
 					cout << this -> at ( i ) -> evaluate () << endl;
-				}
-			}
 		}
         	void sort () {
 			sort_function -> sort ( this );
@@ -83,10 +73,6 @@ class VectorContainer: public Container {
 
 class ListContainer: public Container {
 	public:
-		ListContainer() : sort_function ( NULL ) {};
-		ListContainer( Sort * function ) : sort_function ( function ) {};
-		~ ListContainer();
-
 		void set_sort_function ( Sort * sort_function ) {
 			this->sort_function = sort_function;
 		}
@@ -96,28 +82,38 @@ class ListContainer: public Container {
 		}
         	void print () {
 			if ( this -> size () == 0)
-			{
 				cout << "Container is empty." << endl;
-			}
 			else
-			{
 				for ( int i = 0; i < this -> size (); i++ )
-				{
 					cout << this -> at ( i ) -> evaluate () << endl;
-				}
-			}
 		}
         	void sort () {
 			sort_function -> sort ( this );
 		}
     
         	void swap ( int i , int j ) {
-			//Base * temp = listContainer[i];
-			//listContainer[i] = listContainer[j];
-			//listContainer[j] = listContainer[i];
+			list < Base * > :: iterator it_i = listContainer.begin();
+			list < Base * > :: iterator  it_j = listContainer.begin();
+			int k = 0;
+			while ( k < i || k < j )
+			{
+				if ( k < i ) { it_i++; }
+				if ( k < j ) { it_j++; }
+				k++;
+			}
+			listContainer.insert ( it_i, *it_j );
+			listContainer.insert ( it_j, *it_i );
+			listContainer.erase ( it_i );
+			listContainer.erase ( it_j );
 		}
-        	Base * at ( int i ) { return 0; }
-        	int size () { return 0; }
+        	Base * at ( int i )
+		{
+			list < Base * > :: iterator it;
+			it = listContainer.begin ();
+			for ( int j = 0; j < i; j++) { ++it; }
+			return * it;
+		}
+        	int size () { return listContainer.size(); }
 
 	protected:
 		Sort * sort_function;

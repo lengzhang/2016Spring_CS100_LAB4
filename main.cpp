@@ -1,7 +1,7 @@
 #include <iostream>
 #include "Base.h"
+
 #include "Container.h"
-#include "Sort.h"
 
 using namespace std;
 
@@ -15,13 +15,18 @@ int main() {
 	Sub * C = new Sub ( B , op2 );
 	Sqr * D = new Sqr ( C );
 	
-	VectorContainer * container = new VectorContainer ();
+	ListContainer * container = new ListContainer ();
 	container -> add_element ( A );
 	container -> add_element ( B );
 	container -> add_element ( C );
 	container -> add_element ( D );
 
+	cout << "Container Before Sort:" << endl;
 	container -> print ();
+
+//	container -> set_sort_function ( new SelectionSort ());
+//	container -> sort ();
+//	container -> print ();	
 
 	return 0;
 }
