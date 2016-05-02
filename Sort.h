@@ -15,11 +15,13 @@ class Sort {
 		/* Pure Virtual Functions */
 		virtual void sort ( Container * container ) = 0 ;
 };
-/*
+
 class SelectionSort: public Sort {
 	public:
-		SelectionSort () ;
-		void  sort ( Container * container ) {
+		SelectionSort ();
+		//~SelectionSort ();
+		void  sort ( Container * container )
+		{
 			int size = container -> size ();
 			for ( int i = 0; i < size; i++ )
 			{
@@ -31,5 +33,5 @@ class SelectionSort: public Sort {
 			}
 		};
 };
-*/
+
 #endif /* Sort_h */

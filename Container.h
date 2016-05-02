@@ -9,6 +9,8 @@
 
 using namespace std;
 
+//class Sort;
+
 class Container {
 	protected:
         	Sort * sort_function;

@@ -2,6 +2,7 @@
 #include "Base.h"
 
 #include "Container.h"
+#include "Sort.h"
 
 using namespace std;
 
@@ -24,7 +25,7 @@ int main() {
 	cout << "Container Before Sort:" << endl;
 	container -> print ();
 
-//	container -> set_sort_function ( new SelectionSort ());
+	container -> set_sort_function ( new SelectionSort ());
 //	container -> sort ();
 //	container -> print ();	
 
