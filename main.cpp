@@ -293,12 +293,10 @@ class Sort {
 
 class SelectionSort: public Sort {
 	public:
-		SelectionSort () {};
-		//~SelectionSort ();
 		virtual void  sort ( Container * container )
 		{
 			int size = container -> size ();
-			for ( int i = 0; i < size-1; i++ )
+			for ( int i = 0; i < size - 1; i++ )
 			{
 				int min_it = i;
 				for ( int j = i + 1; j < size; j++ ){
@@ -308,6 +306,29 @@ class SelectionSort: public Sort {
 				if ( min_it != i )
 					container -> swap ( i, min_it );
 			}
+		};
+};
+
+//—————BubbleSort—————
+
+class BubbleSort: public Sort {
+	public:
+		virtual void sort ( Container * container )
+		{
+			int size = container -> size ();
+			bool swapped;
+			do
+			{
+				swapped = false;
+				for ( int i = 0; i < size - 1; i++ )
+				{
+					if ( container -> at ( i ) -> evaluate () > container -> at ( i + 1 ) -> evaluate () )
+					{
+						container -> swap ( i, i + 1);
+						swapped = true;
+					}
+				}
+			} while ( swapped ); 
 		};
 };
 
@@ -417,14 +438,23 @@ int main() {
 	container -> add_element ( B );
 	container -> add_element ( C );
 	container -> add_element ( D );
+	container -> add_element ( op7 );
+	container -> add_element ( op4 );
+	container -> add_element ( op3 );
+	container -> add_element ( op2 );
+
 
 	cout << "Container Before Sort:" << endl;
 	container -> print ();
 
 	cout << "Container After Sort:" << endl;
 	container -> set_sort_function ( new SelectionSort ());
+	//container -> set_sort_function ( new BubbleSort ());
 	container -> sort ();
-	container -> print ();	
+	container -> print ();
+
+
+
 
 	return 0;
 }
